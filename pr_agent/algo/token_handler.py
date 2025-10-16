@@ -17,6 +17,8 @@ class ModelTypeValidator:
     @staticmethod
     def is_anthropic_model(model_name: str) -> bool:
         return 'claude' in model_name
+    
+
 
 
 class TokenEncoder:

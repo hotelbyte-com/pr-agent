@@ -168,6 +168,9 @@ MAX_TOKENS = {
     "mistral/codestral-mamba-latest": 256000,
     "codestral/codestral-latest": 8191,
     "codestral/codestral-2405": 8191,
+    # GLM models
+    "glm-4.6": 200000,  # 200K context window, 128K max output
+    "zhipu/glm-4.6": 200000,  # 200K context window, 128K max output
 }
 
 USER_MESSAGE_ONLY_MODELS = [
