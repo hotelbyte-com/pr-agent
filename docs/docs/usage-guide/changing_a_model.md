@@ -334,6 +334,31 @@ key = "..." # your Codestral api key
 
 (you can obtain a Codestral key from [here](https://console.mistral.ai/codestral))
 
+### Zhipu AI (GLM)
+
+To use GLM-4.6 model with Zhipu AI, set:
+
+```toml
+[config] # in configuration.toml
+model = "zhipu/glm-4.6"
+fallback_models = ["zhipu/glm-4.6"]
+
+[zhipu] # in .secrets.toml
+key = "..." # your Zhipu AI API key
+```
+
+You can also use the model without the provider prefix:
+
+```toml
+[config] # in configuration.toml
+model = "glm-4.6"
+fallback_models = ["glm-4.6"]
+```
+
+GLM-4.6 supports a 200K input context window and 128K maximum output tokens, making it suitable for analyzing large pull requests and code repositories.
+
+(you can obtain a Zhipu AI API key from [here](https://open.bigmodel.cn/))
+
 ### Openrouter
 
 To use model from Openrouter, for example, set:
