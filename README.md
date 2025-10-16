@@ -227,7 +227,7 @@ Receive automatic feedback in your IDE after each commit: [Qodo Merge post-commi
 **Platform Agnostic**: 
 - **Git Providers**: GitHub, GitLab, BitBucket, Azure DevOps, Gitea
 - **Deployment**: CLI, GitHub Actions, Docker, self-hosted, webhooks
-- **AI Models**: OpenAI GPT, Claude, Deepseek, and more
+- **AI Models**: OpenAI GPT, Claude, Deepseek, GLM, and more
 
 **Open Source Benefits**:
 - Full control over your data and infrastructure
