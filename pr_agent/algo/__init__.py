@@ -171,6 +171,7 @@ MAX_TOKENS = {
     # GLM models
     "glm-4.6": 200000,  # 200K context window, 128K max output
     "zhipu/glm-4.6": 200000,  # 200K context window, 128K max output
+    "openai/glm-4.6": 200000,  # 200K context window, 128K max output (OpenAI-compatible API)
 }
 
 USER_MESSAGE_ONLY_MODELS = [
