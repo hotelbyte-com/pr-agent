@@ -148,6 +148,13 @@ class LiteLLMAIHandler(BaseAiHandler):
         # Models that require streaming
         self.streaming_required_models = STREAMING_REQUIRED_MODELS
 
+        # Zhipu GLM 模型映射 - 将 zhipu/ 前缀映射到 openai/ 前缀
+        self.zhipu_model_mapping = {
+            "zhipu/glm-4.6": "openai/glm-4.6",
+            "zhipu/glm-4-plus": "openai/glm-4-plus",
+            "zhipu/glm-4": "openai/glm-4",
+        }
+
     def prepare_logs(self, response, system, user, resp, finish_reason):
         response_log = response.dict().copy()
         response_log['system'] = system
@@ -263,6 +270,12 @@ class LiteLLMAIHandler(BaseAiHandler):
         stop=stop_after_attempt(MODEL_RETRIES),
     )
     async def chat_completion(self, model: str, system: str, user: str, temperature: float = 0.2, img_path: str = None):
+        # 处理 zhipu 前缀模型映射
+        if model in self.zhipu_model_mapping:
+            original_model = model
+            model = self.zhipu_model_mapping[model]
+            get_logger().info(f"Mapping zhipu model {original_model} to {model}")
+        
         try:
             resp, finish_reason = None, None
             deployment_id = self.deployment_id
